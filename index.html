@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="在浏览器本地将 Markdown 转换为 Word 或 PDF" />
+  <title>Markdown 文档导出</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">LOCAL DOCUMENT TOOL</p>
+      <h1>Markdown 文档导出</h1>
+    </div>
+    <div class="actions">
+      <label class="button secondary">导入 MD<input id="mdFile" type="file" accept=".md,.markdown,text/markdown" hidden /></label>
+      <label class="button secondary">添加图片<input id="assetFiles" type="file" accept="image/*" multiple hidden /></label>
+      <button id="exportDocx" class="button primary" type="button">导出 Word</button>
+      <button id="exportPdf" class="button dark" type="button">导出 PDF</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="pane editor-pane" aria-label="Markdown 编辑器">
+      <div class="pane-title"><span>MARKDOWN</span><span id="documentName">未命名文档.md</span></div>
+      <textarea id="editor" spellcheck="false" aria-label="Markdown 内容"></textarea>
+    </section>
+    <section class="pane preview-pane" aria-label="文档预览">
+      <div class="pane-title"><span>PREVIEW</span><span>A4 版式预览</span></div>
+      <div class="preview-scroll"><article id="preview" class="markdown-body"></article></div>
+    </section>
+  </main>
+
+  <footer class="statusbar">
+    <span id="status" role="status">正在加载示例…</span>
+    <span>内容仅在当前浏览器中处理</span>
+  </footer>
+  <script src="libs/marked.min.js"></script>
+  <script src="libs/purify.min.js"></script>
+  <script src="libs/docx.iife.js"></script>
+  <script src="libs/html2pdf.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
